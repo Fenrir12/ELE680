@@ -1,0 +1,5 @@
+*.gise
+*.xise
+/_xmsgs
+/_xmsgs/*
+*.html
