@@ -141,52 +141,29 @@ BEGIN
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
 		-------------------------
-		--Read timing block 2
+		--Read command
 		D_io <= x"80";
       wait for 30 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
 		-------------------------
-		--Write timing block 2
-		wait for 50 ns;
-		ft_wr_done_i <= '1';
-		wait for 30 ns;
-		ft_wr_done_i <= '0';
-		-------------------------
-		wait for 30 ns;
---test config 81
-		--Read timing block 1
-		D_io <= x"71";
+		--Read quantity
+		D_io <= x"01";
       wait for 30 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
 		-------------------------
-		--Read timing block 2
-		D_io <= x"81";
+		--Read Byte 1
+		D_io <= x"AB";
       wait for 30 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
-		-------------------------
-		--Write timing block 2
-		wait for 50 ns;
-		ft_wr_done_i <= '1';
-		wait for 30 ns;
-		ft_wr_done_i <= '0';
-		-------------------------
-		wait for 30 ns;
---test config 82
-		--Read timing block 1
-		D_io <= x"71";
-      wait for 30 ns;
-		ft_rd_done_i <= '1';
-		wait for 50 ns;
-		ft_rd_done_i <= '0';
-		-------------------------
-		--Read timing block 2
-		D_io <= x"82";
+		-------------------------		
+		--Read Byte 2
+		D_io <= x"CD";
       wait for 30 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
@@ -199,50 +176,7 @@ BEGIN
 		ft_wr_done_i <= '0';
 		-------------------------
 		wait for 30 ns;
---test config 83
-		--Read timing block 1
-		D_io <= x"71";
-      wait for 30 ns;
-		ft_rd_done_i <= '1';
-		wait for 50 ns;
-		ft_rd_done_i <= '0';
-		-------------------------
-		--Read timing block 2
-		D_io <= x"83";
-      wait for 30 ns;
-		ft_rd_done_i <= '1';
-		wait for 50 ns;
-		ft_rd_done_i <= '0';
-		-------------------------
-		--Write timing block 2
-		wait for 50 ns;
-		ft_wr_done_i <= '1';
-		wait for 30 ns;
-		ft_wr_done_i <= '0';
-		-------------------------
-		wait for 30 ns;
---test config 87
-		--Read timing block 1
-		D_io <= x"71";
-      wait for 30 ns;
-		ft_rd_done_i <= '1';
-		wait for 50 ns;
-		ft_rd_done_i <= '0';
-		-------------------------
-		--Read timing block 2
-		D_io <= x"87";
-      wait for 30 ns;
-		ft_rd_done_i <= '1';
-		wait for 50 ns;
-		ft_rd_done_i <= '0';
-		-------------------------
-		--Write timing block 2
-		wait for 50 ns;
-		ft_wr_done_i <= '1';
-		wait for 30 ns;
-		ft_wr_done_i <= '0';
-		-------------------------
-		wait for 30 ns;
+
    end process;
 
 END;
