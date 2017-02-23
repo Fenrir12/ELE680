@@ -133,38 +133,43 @@ BEGIN
       wait for CLK_i_period*10;
 
       -- insert stimulus here 
---test config 80
+--test config 80 1
 		--Read timing block 1
+		wait for 14 ns;
 		D_io <= x"71";
-      wait for 30 ns;
+      wait for 16 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
 		-------------------------
 		--Read command
+		wait for 14 ns;
 		D_io <= x"80";
-      wait for 30 ns;
+      wait for 16 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
 		-------------------------
 		--Read quantity
+		wait for 14 ns;
 		D_io <= x"01";
-      wait for 30 ns;
+      wait for 16 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
 		-------------------------
 		--Read Byte 1
+		wait for 14 ns;
 		D_io <= x"AB";
-      wait for 30 ns;
+      wait for 16 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
 		-------------------------		
 		--Read Byte 2
+		wait for 14 ns;
 		D_io <= x"CD";
-      wait for 30 ns;
+      wait for 16 ns;
 		ft_rd_done_i <= '1';
 		wait for 50 ns;
 		ft_rd_done_i <= '0';
@@ -175,8 +180,285 @@ BEGIN
 		wait for 30 ns;
 		ft_wr_done_i <= '0';
 		-------------------------
-		wait for 30 ns;
 
+----test config 82
+		--Read timing block 1
+		wait for 14 ns;
+		D_io <= x"71";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read command
+		wait for 14 ns;
+		D_io <= x"82";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read quantity
+		wait for 14 ns;
+		D_io <= x"01";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read Byte 1
+		wait for 14 ns;
+		D_io <= x"7F";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------		
+		--Read Byte 2
+		wait for 14 ns;
+		D_io <= x"FF";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Write timing block 2
+		wait for 50 ns;
+		ft_wr_done_i <= '1';
+		wait for 30 ns;
+		ft_wr_done_i <= '0';
+----test config 83
+		--Read timing block 1
+		wait for 14 ns;
+		D_io <= x"71";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read command
+		wait for 14 ns;
+		D_io <= x"83";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read quantity
+		wait for 14 ns;
+		D_io <= x"01";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read Byte 1
+		wait for 14 ns;
+		D_io <= x"00";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------		
+		--Read Byte 2
+		wait for 14 ns;
+		D_io <= x"00";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Write timing block 2
+		wait for 50 ns;
+		ft_wr_done_i <= '1';
+		wait for 30 ns;
+		ft_wr_done_i <= '0';
+----test config 85
+		--Read timing block 1
+		wait for 14 ns;
+		D_io <= x"71";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read command
+		wait for 14 ns;
+		D_io <= x"85";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read quantity
+		wait for 14 ns;
+		D_io <= x"01";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read Byte 1
+		wait for 14 ns;
+		D_io <= x"00";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------		
+		--Read Byte 2
+		wait for 14 ns;
+		D_io <= x"04";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Write timing block 2
+		wait for 50 ns;
+		ft_wr_done_i <= '1';
+		wait for 30 ns;
+		ft_wr_done_i <= '0';
+--test config 86 1
+		--Read timing block 1
+		wait for 14 ns;
+		D_io <= x"71";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read command
+		wait for 14 ns;
+		D_io <= x"86";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read quantity
+		wait for 14 ns;
+		D_io <= x"01";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read Byte 1
+		wait for 14 ns;
+		D_io <= x"00";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------		
+		--Read Byte 2
+		wait for 14 ns;
+		D_io <= x"02";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Write timing block 2
+		wait for 50 ns;
+		ft_wr_done_i <= '1';
+		wait for 30 ns;
+		ft_wr_done_i <= '0';
+		-------------------------
+		----test config 87
+		--Read timing block 1
+		wait for 14 ns;
+		D_io <= x"71";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read command
+		wait for 14 ns;
+		D_io <= x"87";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read quantity
+		wait for 14 ns;
+		D_io <= x"01";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read Byte 1
+		wait for 14 ns;
+		D_io <= x"00";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------		
+		--Read Byte 2
+		wait for 14 ns;
+		D_io <= x"04";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Write timing block 2
+		wait for 50 ns;
+		ft_wr_done_i <= '1';
+		wait for 30 ns;
+		ft_wr_done_i <= '0';
+		
+----test config 84
+		--Read timing block 1
+		wait for 14 ns;
+		D_io <= x"71";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read command
+		wait for 14 ns;
+		D_io <= x"84";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read quantity
+		wait for 14 ns;
+		D_io <= x"01";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Read Byte 1
+		wait for 14 ns;
+		D_io <= x"00";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------		
+		--Read Byte 2
+		wait for 14 ns;
+		D_io <= x"00";
+      wait for 16 ns;
+		ft_rd_done_i <= '1';
+		wait for 50 ns;
+		ft_rd_done_i <= '0';
+		-------------------------
+		--Write timing block 2
+		wait for 50 ns;
+		ft_wr_done_i <= '1';
+		wait for 30 ns;
+		ft_wr_done_i <= '0';
    end process;
 
 END;

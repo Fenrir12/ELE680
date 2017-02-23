@@ -55,14 +55,8 @@ architecture Behavioral of Main_ctrlr is
 									gen_start_top, sig_att_top, jump_rd_addr_top,
 									f_div_top,
 									ERROR);
-	TYPE Bot_State_type IS (IDLE, wr_addr, data_load, max_rd_addr, gen_stop,  
-									gen_start, sig_att, jump_rd_addr,f_div,		
-									read_qty, wr_confirm,
-									--states for wr_addr
-									read_wr_addr_byte1, read_wr_addr_byte2,
-									--other states to come
-									ERROR
-									);
+--Définitins des sous-états de chaques commandes
+	TYPE Bot_State_type IS (IDLE, read_qty, read_byte1, read_byte2, wr_confirm, ERROR);
 					
 	--Definitons des etats
 	--IDLE : Demarrage du systeme, remise de tous les registres internes a 0
@@ -76,7 +70,9 @@ architecture Behavioral of Main_ctrlr is
 	signal Sub_State : Bot_State_type;
 	
 	signal D_io_out : STD_LOGIC_VECTOR(7 downto 0);
-	signal wr_addr_s : STD_LOGIC_VECTOR (14 downto 0);
+	signal temp_buf_2_bytes : STD_LOGIC_VECTOR(15 downto 0);
+	signal last_ft_rd_done_i,start_byte_read, GEN_RUN_s : STD_LOGIC;
+	signal fdiv_s : STD_LOGIC_VECTOR(4 downto 0);
 begin
 
 --TOP FSM PROCESS
@@ -84,12 +80,15 @@ begin
 	BEGIN
 	IF (RST_i = '1') THEN
 		Top_State <= IDLE_Top;
+		start_byte_read <= '0';
+		GEN_RUN_s <= '0';
 	ELSIF (rising_edge(clk_i)) THEN
 		CASE Top_State IS
 			WHEN IDLE_Top =>
 				Top_State <= Start;
 			WHEN Start =>
 				Top_State <= read_start;
+				start_byte_read <= '0';
 			WHEN read_start =>
 				IF (ft_rd_done_i = '1' AND D_io = x"71") THEN
 					Top_State <= read_conf;
@@ -99,20 +98,28 @@ begin
 				IF (ft_rd_done_i = '1') THEN
 					IF (D_io = x"80") THEN
 						Top_State <= wr_addr_top;
+						start_byte_read <= '1';
 					ELSIF (D_io = x"81") THEN
 						Top_State <= data_load_top;
+						start_byte_read <= '1';
 					ELSIF (D_io = x"82") THEN
 						Top_State <= max_rd_addr_top;
+						start_byte_read <= '1';
 					ELSIF (D_io = x"83") THEN
 						Top_State <= gen_stop_top;
+						start_byte_read <= '1';
 					ELSIF (D_io = x"84") THEN
 						Top_State <= gen_start_top;
+						start_byte_read <= '1';
 					ELSIF (D_io = x"85") THEN
 						Top_State <= sig_att_top;
+						start_byte_read <= '1';
 					ELSIF (D_io = x"86") THEN
 						Top_State <= jump_rd_addr_top;
+						start_byte_read <= '1';
 					ELSIF (D_io = x"87") THEN
 						Top_State <= f_div_top;
+						start_byte_read <= '1';
 					end IF;
 				end IF;
 	----------------------------------------------
@@ -161,43 +168,68 @@ begin
 	BEGIN
 	IF (RST_i = '1') THEN
 		Sub_State <= IDLE;
+		temp_buf_2_bytes <= x"0000";
 	ELSIF (rising_edge(clk_i)) THEN
+		last_ft_rd_done_i <= ft_rd_done_i;
 		CASE Sub_State IS
 			WHEN IDLE =>
-				Sub_State <= wr_addr;
-			WHEN wr_addr =>
-				ft_wr_en_o <= '0';
-				IF (D_io = x"80" and ft_rd_done_i = '1') THEN
+				IF (start_byte_read = '1' AND ft_rd_done_i = '1') THEN
 					Sub_State <= read_qty;
 				end IF;
 			WHEN read_qty =>
 				IF (D_io = x"01" and ft_rd_done_i = '1') THEN
-					Sub_State <= read_wr_addr_byte1;
+					Sub_State <= read_byte1;
 				end IF;
-			WHEN read_wr_addr_byte1 =>
-				IF (ft_rd_done_i = '1') THEN
-					wr_addr_s (14 downto 8) <= D_io;
-					Sub_State <= read_wr_addr_byte2;
+			WHEN read_byte1 =>		
+				IF (ft_rd_done_i = '1' AND last_ft_rd_done_i = '0') THEN
+					temp_buf_2_bytes(15 downto 8) <= D_io;
+					Sub_State <= read_byte2;
 				end IF;
-			WHEN read_wr_addr_byte2 =>
-				IF (ft_rd_done_i = '1') THEN
-					wr_addr_s (7 downto 0) <= D_io;
+			WHEN read_byte2 =>
+				IF (ft_rd_done_i = '1' AND last_ft_rd_done_i = '0') THEN
+					temp_buf_2_bytes(7 downto 0) <= D_io;
 					Sub_State <= wr_confirm;
 				end IF;
 			WHEN wr_confirm =>
-				D_io_out <= x"80";
 				ft_wr_en_o <= '1';
 				IF (ft_wr_done_i = '1') THEN
-					Sub_State <= wr_addr;
+					Sub_State <= IDLE;
 				end IF;
 			WHEN OTHERS =>
 				Sub_State <= ERROR;
 		end CASE;
+		--choose what to do with buffer according to top command state
+		IF (Sub_State = wr_confirm) THEN
+			CASE Top_State	IS
+				WHEN wr_addr_top =>
+					D_io_out <= x"80";
+					wr_addr_o <= temp_buf_2_bytes(14 downto 0);
+				WHEN max_rd_addr_top =>	
+					D_io_out <= x"82";
+					max_rd_addr_o <= temp_buf_2_bytes(14 downto 0);
+				WHEN gen_stop_top =>	
+					D_io_out <= x"83";
+					GEN_RUN_s <= '0';
+				WHEN gen_start_top =>	
+					D_io_out <= x"84";
+					GEN_RUN_s <= '1';
+				WHEN sig_att_top =>	
+					D_io_out <= x"85";
+					att_o <= temp_buf_2_bytes(3 downto 0);
+				WHEN jump_rd_addr_top =>	
+					D_io_out <= x"86";
+					inc_rd_addr_o <= temp_buf_2_bytes(13 downto 0);
+				WHEN f_div_top =>	
+					D_io_out <= x"87";
+					fdiv_s <= temp_buf_2_bytes(4 downto 0);
+				WHEN OTHERS =>
+				Sub_State <= ERROR;
+			end CASE;
+		end IF;	
 	end IF;
 	end PROCESS;
-
 --Outputs
-D_io <= D_io_out when (Sub_State = wr_confirm AND RST_i = '0') else (others=>'Z'); --State will be changed by normal write state in sub-fsm
-
+D_io <= D_io_out when (Sub_State = wr_confirm AND RST_i = '0') else (others=>'Z');
+GEN_RUN_o <= GEN_RUN_s;
 end Behavioral;
 
