@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use ieee.std_logic_unsigned.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -56,7 +57,7 @@ architecture Behavioral of Main_ctrlr is
 									f_div_top,
 									ERROR);
 --Définitins des sous-états de chaques commandes
-	TYPE Bot_State_type IS (IDLE, read_qty, read_byte1, read_byte2, wr_confirm, ERROR);
+	TYPE Bot_State_type IS (IDLE, read_qty, read_byte1, read_byte2, wr_confirm, MEM_WRITE, inc_wr_addr,ERROR);
 					
 	--Definitons des etats
 	--IDLE : Demarrage du systeme, remise de tous les registres internes a 0
@@ -69,8 +70,9 @@ architecture Behavioral of Main_ctrlr is
 	signal Top_State : Top_State_type;
 	signal Sub_State : Bot_State_type;
 	
-	signal D_io_out : STD_LOGIC_VECTOR(7 downto 0);
+	signal D_io_s, nb_byte : STD_LOGIC_VECTOR(7 downto 0);
 	signal temp_buf_2_bytes : STD_LOGIC_VECTOR(15 downto 0);
+	signal wr_addr_s : STD_LOGIC_VECTOR(14 downto 0);
 	signal last_ft_rd_done_i,start_byte_read, GEN_RUN_s : STD_LOGIC;
 	signal fdiv_s : STD_LOGIC_VECTOR(4 downto 0);
 begin
@@ -78,14 +80,13 @@ begin
 --TOP FSM PROCESS
 	PROCESS(CLK_i, RST_i)
 	BEGIN
-	IF (RST_i = '1') THEN
-		Top_State <= IDLE_Top;
-		start_byte_read <= '0';
-		GEN_RUN_s <= '0';
+	IF (RST_i = '0') THEN
+		Top_State <= IDLE_Top;		
 	ELSIF (rising_edge(clk_i)) THEN
 		CASE Top_State IS
 			WHEN IDLE_Top =>
 				Top_State <= Start;
+				start_byte_read <= '0';
 			WHEN Start =>
 				Top_State <= read_start;
 				start_byte_read <= '0';
@@ -125,35 +126,35 @@ begin
 	----------------------------------------------
 	--Les conditions de passages a start de chaques etats
 			WHEN wr_addr_top =>
-				IF (ft_wr_done_i = '1') THEN
+				IF (ft_wr_done_i = '1' AND Sub_State = wr_confirm) THEN
 					Top_State <= Start;
 				end IF;
 			WHEN data_load_top =>
-				IF (ft_wr_done_i = '1') THEN
+				IF (ft_wr_done_i = '1'  AND Sub_State = wr_confirm) THEN
 					Top_State <= Start;
 				end IF;
 			WHEN max_rd_addr_top =>
-				IF (ft_wr_done_i = '1') THEN
+				IF (ft_wr_done_i = '1'  AND Sub_State = wr_confirm) THEN
 					Top_State <= Start;
 				end IF;
 			WHEN gen_stop_top =>
-				IF (ft_wr_done_i = '1') THEN
+				IF (ft_wr_done_i = '1'  AND Sub_State = wr_confirm) THEN
 					Top_State <= Start;
 				end IF;
 			WHEN gen_start_top =>
-				IF (ft_wr_done_i = '1') THEN
+				IF (ft_wr_done_i = '1'  AND Sub_State = wr_confirm) THEN
 					Top_State <= Start;
 				end IF;	
 			WHEN sig_att_top =>
-				IF (ft_wr_done_i = '1') THEN
+				IF (ft_wr_done_i = '1'  AND Sub_State = wr_confirm) THEN
 					Top_State <= Start;
 				end IF;
 			WHEN jump_rd_addr_top =>
-				IF (ft_wr_done_i = '1') THEN
+				IF (ft_wr_done_i = '1'  AND Sub_State = wr_confirm) THEN
 					Top_State <= Start;
 				end IF;		
 			WHEN f_div_top =>
-				IF (ft_wr_done_i = '1') THEN
+				IF (ft_wr_done_i = '1'  AND Sub_State = wr_confirm) THEN
 					Top_State <= Start;
 				end IF;
 	--------------------------------------------------
@@ -166,18 +167,21 @@ begin
 --SUB FSM-write PROCESS
 	PROCESS(CLK_i, RST_i)
 	BEGIN
-	IF (RST_i = '1') THEN
+	IF (RST_i = '0') THEN
 		Sub_State <= IDLE;
 		temp_buf_2_bytes <= x"0000";
 	ELSIF (rising_edge(clk_i)) THEN
 		last_ft_rd_done_i <= ft_rd_done_i;
 		CASE Sub_State IS
 			WHEN IDLE =>
+				ft_wr_en_o <= '0';
 				IF (start_byte_read = '1' AND ft_rd_done_i = '1') THEN
 					Sub_State <= read_qty;
+					D_io_s <= D_io;
 				end IF;
-			WHEN read_qty =>
-				IF (D_io = x"01" and ft_rd_done_i = '1') THEN
+			WHEN read_qty =>		
+				IF (ft_rd_done_i = '1' AND last_ft_rd_done_i = '0') THEN
+					nb_byte <= D_io + '1';
 					Sub_State <= read_byte1;
 				end IF;
 			WHEN read_byte1 =>		
@@ -187,8 +191,29 @@ begin
 				end IF;
 			WHEN read_byte2 =>
 				IF (ft_rd_done_i = '1' AND last_ft_rd_done_i = '0') THEN
-					temp_buf_2_bytes(7 downto 0) <= D_io;
+					temp_buf_2_bytes(7 downto 0) <= D_io;	
+					IF (Top_State = data_load_top) THEN
+						Sub_State <= MEM_WRITE;
+					ELSE
+						Sub_State <= wr_confirm;
+					end IF;
+				end IF;
+			WHEN MEM_WRITE =>
+				smp_rdy_o <= '1';
+				D_mem_o <= temp_buf_2_bytes(13 downto 0);
+				IF (mem_wr_ack_i = '1') THEN
+					Sub_State <= inc_wr_addr;
+				ELSE
+					Sub_State <= MEM_WRITE;
+				end IF;
+			WHEN inc_wr_addr=>
+				smp_rdy_o <= '0';
+				nb_byte <= nb_byte - x"2";
+				wr_addr_s <= wr_addr_s + '1';
+				IF (nb_byte = x"FF") THEN
 					Sub_State <= wr_confirm;
+				ELSE
+					Sub_State <= read_byte1;
 				end IF;
 			WHEN wr_confirm =>
 				ft_wr_en_o <= '1';
@@ -202,25 +227,28 @@ begin
 		IF (Sub_State = wr_confirm) THEN
 			CASE Top_State	IS
 				WHEN wr_addr_top =>
-					D_io_out <= x"80";
-					wr_addr_o <= temp_buf_2_bytes(14 downto 0);
+					D_io_s <= x"80";
+					wr_addr_s <= temp_buf_2_bytes(14 downto 0);
+				WHEN data_load_top =>
+					D_io_s <= x"81";
+					D_mem_o <= temp_buf_2_bytes(13 downto 0);
 				WHEN max_rd_addr_top =>	
-					D_io_out <= x"82";
+					D_io_s <= x"82";
 					max_rd_addr_o <= temp_buf_2_bytes(14 downto 0);
 				WHEN gen_stop_top =>	
-					D_io_out <= x"83";
+					D_io_s <= x"83";
 					GEN_RUN_s <= '0';
 				WHEN gen_start_top =>	
-					D_io_out <= x"84";
+					D_io_s <= x"84";
 					GEN_RUN_s <= '1';
 				WHEN sig_att_top =>	
-					D_io_out <= x"85";
+					D_io_s <= x"85";
 					att_o <= temp_buf_2_bytes(3 downto 0);
 				WHEN jump_rd_addr_top =>	
-					D_io_out <= x"86";
+					D_io_s <= x"86";
 					inc_rd_addr_o <= temp_buf_2_bytes(13 downto 0);
 				WHEN f_div_top =>	
-					D_io_out <= x"87";
+					D_io_s <= x"87";
 					fdiv_s <= temp_buf_2_bytes(4 downto 0);
 				WHEN OTHERS =>
 				Sub_State <= ERROR;
@@ -229,7 +257,8 @@ begin
 	end IF;
 	end PROCESS;
 --Outputs
-D_io <= D_io_out when (Sub_State = wr_confirm AND RST_i = '0') else (others=>'Z');
+D_io <= D_io_s WHEN (Sub_State = wr_confirm AND RST_i = '1') ELSE ("ZZZZZZZZ");
+wr_addr_o <= wr_addr_s;
 GEN_RUN_o <= GEN_RUN_s;
 end Behavioral;
 

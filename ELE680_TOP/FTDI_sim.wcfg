@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/FTDI_Block_TB_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="ftdi_block_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/ftdi_block_tb/rxf_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rxf_i</obj_property>
+      <obj_property name="ObjectShortName">rxf_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/txe_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">txe_i</obj_property>
+      <obj_property name="ObjectShortName">txe_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/ft_wr_en_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ft_wr_en_i</obj_property>
+      <obj_property name="ObjectShortName">ft_wr_en_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/rst_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_i</obj_property>
+      <obj_property name="ObjectShortName">rst_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/clk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i</obj_property>
+      <obj_property name="ObjectShortName">clk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/uut/read_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">read_state</obj_property>
+      <obj_property name="ObjectShortName">read_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/uut/write_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">write_state</obj_property>
+      <obj_property name="ObjectShortName">write_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/d_ft_io" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_ft_io[7:0]</obj_property>
+      <obj_property name="ObjectShortName">d_ft_io[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/uut/d_io_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_io_s[7:0]</obj_property>
+      <obj_property name="ObjectShortName">d_io_s[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/d_io" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_io[7:0]</obj_property>
+      <obj_property name="ObjectShortName">d_io[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/uut/counter_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter_s[7:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_s[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/rd_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rd_o</obj_property>
+      <obj_property name="ObjectShortName">rd_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/wr_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_o</obj_property>
+      <obj_property name="ObjectShortName">wr_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/ft_wr_done_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ft_wr_done_o</obj_property>
+      <obj_property name="ObjectShortName">ft_wr_done_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/ft_rd_done_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ft_rd_done_o</obj_property>
+      <obj_property name="ObjectShortName">ft_rd_done_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ftdi_block_tb/clk_i_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i_period</obj_property>
+      <obj_property name="ObjectShortName">clk_i_period</obj_property>
+   </wvobject>
+</wave_config>
