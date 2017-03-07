@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/FTDI_Block_TB_isim_beh.exe" -prj "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/FTDI_Block_TB_beh.prj" "work.FTDI_Block_TB" 

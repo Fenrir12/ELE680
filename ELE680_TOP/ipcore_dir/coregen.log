@@ -1,49 +1,5 @@
 INFO:sim:172 - Generating IP...
-Resolving generics for 'DCM_block'...
-Applying external generics to 'DCM_block'...
-Delivering associated files for 'DCM_block'...
-WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for
-   Verilog synthesis
-Delivering EJava files for 'DCM_block'...
-Delivered 3 files into directory
-/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/tmp/_cg/DCM
-_block
-Delivered 1 file into directory
-/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/tmp/_cg/DCM
-_block
-Generating ASY schematic symbol...
-Loading device for application Rf_Device from file '6slx9.nph' in environment
-/home/f3nr1r/Manual_Softwares/14.7/ISE_DS/ISE/.
-INFO:sim:949 - Finished generation of ASY schematic symbol.
-Generating SYM schematic symbol for 'DCM_block'...
-Generating ISE project...
-XCO file found: DCM_block.xco
-XMDF file found: DCM_block_xmdf.tcl
-Adding
-/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/tmp/_cg/DCM
-_block.asy -view all -origin_type imported
-Adding
-/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/tmp/_cg/DCM
-_block.ucf -view all -origin_type created
-Adding
-/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/tmp/_cg/DCM
-_block.v -view all -origin_type created
-INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/tmp/_cg
-   /DCM_block.v" into library work
-INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
-Adding
-/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/tmp/_cg/DCM
-_block.veo -view all -origin_type imported
-INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
-   Please set the new top explicitly by running the "project set top" command.
-   To re-calculate the new top automatically, set the "Auto Implementation Top"
-   property to true.
-Top level has been set to "/DCM_block"
-Generating README file...
-Generating FLIST file...
-INFO:sim:948 - Finished FLIST file generation.
-Launching README viewer...
-Moving files to output directory...
-Finished moving files to output directory
-Wrote CGP file for project 'DCM_block'.
+WARNING:sim - Verilog simulation file type 'Behavioral' is not valid for this
+   core. Overriding with simulation file type 'Structural'.
+Cancelled executing Tcl generator.
+Wrote CGP file for project 'Counter'.

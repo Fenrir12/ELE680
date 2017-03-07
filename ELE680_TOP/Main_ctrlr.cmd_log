@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_ctrlr.xst" -ofn "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_ctrlr.syr" 
+xst -intstyle ise -ifn "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_ctrlr.xst" -ofn "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_ctrlr.syr" 

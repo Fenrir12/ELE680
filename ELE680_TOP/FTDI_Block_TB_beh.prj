@@ -1,0 +1,2 @@
+vhdl work "FTDI_Block.vhd"
+vhdl work "FTDI_Block_TB.vhd"

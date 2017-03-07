@@ -7,10 +7,12 @@
          <top_modules>
             <top_module name="main_ctrlr_tb" />
             <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="24" />
    <wvobject fp_name="/main_ctrlr_tb/mem_wr_ack_i" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">mem_wr_ack_i</obj_property>
       <obj_property name="ObjectShortName">mem_wr_ack_i</obj_property>
@@ -36,6 +38,11 @@
       <obj_property name="ObjectShortName">d_io[7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/main_ctrlr_tb/uut/d_io_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_io_s[7:0]</obj_property>
+      <obj_property name="ObjectShortName">d_io_s[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/main_ctrlr_tb/uut/top_state" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">top_state</obj_property>
       <obj_property name="ObjectShortName">top_state</obj_property>
@@ -44,24 +51,40 @@
       <obj_property name="ElementShortName">sub_state</obj_property>
       <obj_property name="ObjectShortName">sub_state</obj_property>
    </wvobject>
-   <wvobject fp_name="/main_ctrlr_tb/uut/temp_buf_2_bytes_s" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">temp_buf_2_bytes_s[15:0]</obj_property>
-      <obj_property name="ObjectShortName">temp_buf_2_bytes_s[15:0]</obj_property>
+   <wvobject fp_name="/main_ctrlr_tb/uut/temp_buf_2_bytes" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">temp_buf_2_bytes[15:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_buf_2_bytes[15:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_ctrlr_tb/uut/nb_byte" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">nb_byte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">nb_byte[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_ctrlr_tb/uut/wr_addr_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_addr_s[14:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_addr_s[14:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
    </wvobject>
    <wvobject fp_name="/main_ctrlr_tb/wr_addr_o" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">wr_addr_o[14:0]</obj_property>
       <obj_property name="ObjectShortName">wr_addr_o[14:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_ctrlr_tb/d_mem_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_mem_o[13:0]</obj_property>
+      <obj_property name="ObjectShortName">d_mem_o[13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/main_ctrlr_tb/max_rd_addr_o" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">max_rd_addr_o[14:0]</obj_property>
       <obj_property name="ObjectShortName">max_rd_addr_o[14:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/main_ctrlr_tb/att_o" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">att_o[3:0]</obj_property>
-      <obj_property name="ObjectShortName">att_o[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/main_ctrlr_tb/gen_run_o" type="logic" db_ref_id="1">
@@ -76,10 +99,11 @@
    <wvobject fp_name="/main_ctrlr_tb/uut/fdiv_s" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">fdiv_s[4:0]</obj_property>
       <obj_property name="ObjectShortName">fdiv_s[4:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/main_ctrlr_tb/d_mem_o" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">d_mem_o[13:0]</obj_property>
-      <obj_property name="ObjectShortName">d_mem_o[13:0]</obj_property>
+   <wvobject fp_name="/main_ctrlr_tb/att_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">att_o[3:0]</obj_property>
+      <obj_property name="ObjectShortName">att_o[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/main_ctrlr_tb/smp_rdy_o" type="logic" db_ref_id="1">

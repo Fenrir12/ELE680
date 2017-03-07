@@ -1,0 +1,2 @@
+vhdl isim_temp "FTDI_Block.vhd"
+vhdl isim_temp "FTDI_Block_TB.vhd"
