@@ -120,7 +120,7 @@ Parsing architecture <Behavioral> of entity <main_ctrlr>.
 =========================================================================
 
 Elaborating entity <Main_ctrlr> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_ctrlr.vhd" Line 166: Assignment to fdiv_s ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_ctrlr.vhd" Line 168: Assignment to fdiv_s ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -128,7 +128,6 @@ WARNING:HDLCompiler:1127 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE68
 
 Synthesizing Unit <Main_ctrlr>.
     Related source file is "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_ctrlr.vhd".
-WARNING:Xst:647 - Input <mem_wr_ack_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 3-bit register for signal <Sub_State>.
     Found 16-bit register for signal <temp_buf_2_bytes>.
     Found 4-bit register for signal <Top_State>.
@@ -136,6 +135,9 @@ WARNING:Xst:647 - Input <mem_wr_ack_i> is never used. This port will be preserve
     Found 1-bit register for signal <last_ft_rd_done_i>.
     Found 1-bit register for signal <ft_wr_en_o>.
     Found 8-bit register for signal <D_io_s>.
+    Found 8-bit register for signal <nb_byte>.
+    Found 1-bit register for signal <smp_rdy_o>.
+    Found 14-bit register for signal <D_mem_o>.
     Found 15-bit register for signal <wr_addr_o>.
     Found 15-bit register for signal <max_rd_addr_o>.
     Found 1-bit register for signal <GEN_RUN_o>.
@@ -143,12 +145,12 @@ WARNING:Xst:647 - Input <mem_wr_ack_i> is never used. This port will be preserve
     Found 14-bit register for signal <inc_rd_addr_o>.
     Found finite state machine <FSM_0> for signal <Sub_State>.
     -----------------------------------------------------------------------
-    | States             | 6                                              |
-    | Transitions        | 16                                             |
-    | Inputs             | 6                                              |
-    | Outputs            | 5                                              |
+    | States             | 8                                              |
+    | Transitions        | 24                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 6                                              |
     | Clock              | CLK_i (rising_edge)                            |
-    | Reset              | RST_i (positive)                               |
+    | Reset              | RST_i (negative)                               |
     | Reset type         | asynchronous                                   |
     | Reset State        | idle                                           |
     | Power Up State     | idle                                           |
@@ -159,27 +161,31 @@ INFO:Xst:1799 - State error is never reached in FSM <Top_State>.
     Found finite state machine <FSM_1> for signal <Top_State>.
     -----------------------------------------------------------------------
     | States             | 13                                             |
-    | Transitions        | 35                                             |
-    | Inputs             | 11                                             |
-    | Outputs            | 13                                             |
+    | Transitions        | 43                                             |
+    | Inputs             | 12                                             |
+    | Outputs            | 7                                              |
     | Clock              | CLK_i (rising_edge)                            |
-    | Reset              | RST_i (positive)                               |
+    | Reset              | RST_i (negative)                               |
     | Reset type         | asynchronous                                   |
     | Reset State        | idle_top                                       |
     | Power Up State     | idle_top                                       |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 1-bit tristate buffer for signal <D_io<7>> created at line 233
-    Found 1-bit tristate buffer for signal <D_io<6>> created at line 233
-    Found 1-bit tristate buffer for signal <D_io<5>> created at line 233
-    Found 1-bit tristate buffer for signal <D_io<4>> created at line 233
-    Found 1-bit tristate buffer for signal <D_io<3>> created at line 233
-    Found 1-bit tristate buffer for signal <D_io<2>> created at line 233
-    Found 1-bit tristate buffer for signal <D_io<1>> created at line 233
-    Found 1-bit tristate buffer for signal <D_io<0>> created at line 233
+    Found 8-bit adder for signal <D_io[7]_GND_5_o_add_40_OUT> created at line 184.
+    Found 15-bit adder for signal <wr_addr_s[14]_GND_5_o_add_49_OUT> created at line 212.
+    Found 8-bit subtractor for signal <GND_5_o_GND_5_o_sub_49_OUT<7:0>> created at line 211.
+    Found 1-bit tristate buffer for signal <D_io<7>> created at line 260
+    Found 1-bit tristate buffer for signal <D_io<6>> created at line 260
+    Found 1-bit tristate buffer for signal <D_io<5>> created at line 260
+    Found 1-bit tristate buffer for signal <D_io<4>> created at line 260
+    Found 1-bit tristate buffer for signal <D_io<3>> created at line 260
+    Found 1-bit tristate buffer for signal <D_io<2>> created at line 260
+    Found 1-bit tristate buffer for signal <D_io<1>> created at line 260
+    Found 1-bit tristate buffer for signal <D_io<0>> created at line 260
     Summary:
-	inferred  76 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  99 D-type flip-flop(s).
 	inferred  24 Multiplexer(s).
 	inferred   8 Tristate(s).
 	inferred   2 Finite State Machine(s).
@@ -189,22 +195,27 @@ Unit <Main_ctrlr> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Registers                                            : 10
- 1-bit register                                        : 4
- 14-bit register                                       : 1
+# Adders/Subtractors                                   : 2
+ 15-bit adder                                          : 1
+ 8-bit addsub                                          : 1
+# Registers                                            : 13
+ 1-bit register                                        : 5
+ 14-bit register                                       : 2
  15-bit register                                       : 2
  16-bit register                                       : 1
  4-bit register                                        : 1
- 8-bit register                                        : 1
+ 8-bit register                                        : 2
 # Multiplexers                                         : 24
  1-bit 2-to-1 multiplexer                              : 16
+ 15-bit 2-to-1 multiplexer                             : 2
  16-bit 2-to-1 multiplexer                             : 1
- 8-bit 2-to-1 multiplexer                              : 7
+ 8-bit 2-to-1 multiplexer                              : 5
 # Tristates                                            : 8
  1-bit tristate buffer                                 : 8
 # FSMs                                                 : 2
 
 =========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 *                       Advanced HDL Synthesis                          *
@@ -216,11 +227,15 @@ WARNING:Xst:2677 - Node <temp_buf_2_bytes_15> of sequential type is unconnected 
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Registers                                            : 75
- Flip-Flops                                            : 75
-# Multiplexers                                         : 37
- 1-bit 2-to-1 multiplexer                              : 30
- 8-bit 2-to-1 multiplexer                              : 7
+# Adders/Subtractors                                   : 2
+ 15-bit adder                                          : 1
+ 8-bit addsub                                          : 1
+# Registers                                            : 98
+ Flip-Flops                                            : 98
+# Multiplexers                                         : 44
+ 1-bit 2-to-1 multiplexer                              : 38
+ 15-bit 2-to-1 multiplexer                             : 2
+ 8-bit 2-to-1 multiplexer                              : 4
 # FSMs                                                 : 2
 
 =========================================================================
@@ -228,18 +243,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_0> on signal <Sub_State[1:3]> with user encoding.
-------------------------
- State      | Encoding
-------------------------
- idle       | 000
- read_qty   | 001
- read_byte1 | 010
- read_byte2 | 011
- wr_confirm | 100
- error      | 101
-------------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <FSM_1> on signal <Top_State[1:4]> with user encoding.
 ------------------------------
@@ -259,16 +262,30 @@ Optimizing FSM <FSM_1> on signal <Top_State[1:4]> with user encoding.
  f_div_top        | 1011
  error            | unreached
 ------------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <Sub_State[1:3]> with user encoding.
+-------------------------
+ State       | Encoding
+-------------------------
+ idle        | 000
+ read_qty    | 001
+ read_byte1  | 010
+ read_byte2  | 011
+ wr_confirm  | 100
+ mem_write   | 101
+ inc_wr_addr | 110
+ error       | 111
+-------------------------
 
 Optimizing unit <Main_ctrlr> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block Main_ctrlr, actual ratio is 2.
-FlipFlop Sub_State_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop Top_State_FSM_FFd2 has been replicated 3 time(s)
-FlipFlop Top_State_FSM_FFd3 has been replicated 2 time(s)
-FlipFlop Top_State_FSM_FFd4 has been replicated 2 time(s)
+Found area constraint ratio of 100 (+ 5) on block Main_ctrlr, actual ratio is 3.
+FlipFlop Sub_State_FSM_FFd1 has been replicated 2 time(s)
+FlipFlop Sub_State_FSM_FFd2 has been replicated 2 time(s)
+FlipFlop Sub_State_FSM_FFd3 has been replicated 2 time(s)
+FlipFlop Top_State_FSM_FFd2 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -276,8 +293,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 90
- Flip-Flops                                            : 90
+# Registers                                            : 112
+ Flip-Flops                                            : 112
 
 =========================================================================
 
@@ -300,25 +317,30 @@ Top Level Output File Name         : Main_ctrlr.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 159
-#      INV                         : 3
-#      LUT2                        : 2
-#      LUT3                        : 21
-#      LUT4                        : 42
-#      LUT5                        : 26
-#      LUT6                        : 63
-#      MUXF7                       : 2
-# FlipFlops/Latches                : 90
-#      FD                          : 4
-#      FDC                         : 15
+# BELS                             : 183
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 14
+#      LUT2                        : 3
+#      LUT3                        : 38
+#      LUT4                        : 8
+#      LUT5                        : 31
+#      LUT6                        : 48
+#      MUXCY                       : 14
+#      MUXF7                       : 6
+#      VCC                         : 1
+#      XORCY                       : 15
+# FlipFlops/Latches                : 112
+#      FD                          : 5
+#      FDC                         : 14
 #      FDCE                        : 15
-#      FDE                         : 56
+#      FDE                         : 78
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 61
-#      IBUF                        : 3
+# IO Buffers                       : 77
+#      IBUF                        : 4
 #      IOBUF                       : 8
-#      OBUF                        : 50
+#      OBUF                        : 65
 
 Device utilization summary:
 ---------------------------
@@ -327,20 +349,20 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              90  out of  11440     0%  
- Number of Slice LUTs:                  157  out of   5720     2%  
-    Number used as Logic:               157  out of   5720     2%  
+ Number of Slice Registers:             112  out of  11440     0%  
+ Number of Slice LUTs:                  146  out of   5720     2%  
+    Number used as Logic:               146  out of   5720     2%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    161
-   Number with an unused Flip Flop:      71  out of    161    44%  
-   Number with an unused LUT:             4  out of    161     2%  
-   Number of fully used LUT-FF pairs:    86  out of    161    53%  
-   Number of unique control sets:         6
+ Number of LUT Flip Flop pairs used:    177
+   Number with an unused Flip Flop:      65  out of    177    36%  
+   Number with an unused LUT:            31  out of    177    17%  
+   Number of fully used LUT-FF pairs:    81  out of    177    45%  
+   Number of unique control sets:        11
 
 IO Utilization: 
  Number of IOs:                          79
- Number of bonded IOBs:                  62  out of    102    60%  
+ Number of bonded IOBs:                  78  out of    102    76%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -366,7 +388,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK_i                              | BUFGP                  | 90    |
+CLK_i                              | BUFGP                  | 112   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -377,10 +399,10 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 3.516ns (Maximum Frequency: 284.407MHz)
-   Minimum input arrival time before clock: 4.909ns
-   Maximum output required time after clock: 5.717ns
-   Maximum combinational path delay: 6.832ns
+   Minimum period: 4.597ns (Maximum Frequency: 217.531MHz)
+   Minimum input arrival time before clock: 4.761ns
+   Maximum output required time after clock: 5.590ns
+   Maximum combinational path delay: 5.883ns
 
 Timing Details:
 ---------------
@@ -388,73 +410,75 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_i'
-  Clock period: 3.516ns (frequency: 284.407MHz)
-  Total number of paths / destination ports: 709 / 161
+  Clock period: 4.597ns (frequency: 217.531MHz)
+  Total number of paths / destination ports: 1239 / 205
 -------------------------------------------------------------------------
-Delay:               3.516ns (Levels of Logic = 1)
-  Source:            Sub_State_FSM_FFd1 (FF)
-  Destination:       temp_buf_2_bytes_0 (FF)
+Delay:               4.597ns (Levels of Logic = 3)
+  Source:            Top_State_FSM_FFd3 (FF)
+  Destination:       wr_addr_s_0 (FF)
   Source Clock:      CLK_i rising
   Destination Clock: CLK_i rising
 
-  Data Path: Sub_State_FSM_FFd1 to temp_buf_2_bytes_0
+  Data Path: Top_State_FSM_FFd3 to wr_addr_s_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             52   0.447   1.560  Sub_State_FSM_FFd1 (Sub_State_FSM_FFd1)
-     INV:I->O             15   0.206   0.981  _n0399_inv1_cepot_INV_0 (_n0399_inv1_cepot)
-     FDCE:CE                   0.322          temp_buf_2_bytes_0
+     FDC:C->Q             17   0.447   1.132  Top_State_FSM_FFd3 (Top_State_FSM_FFd3)
+     LUT3:I1->O           17   0.203   1.028  _n0531_inv21 (_n0531_inv2)
+     LUT5:I4->O           13   0.205   1.277  _n0531_inv1_rstpot (_n0531_inv1_rstpot)
+     LUT5:I0->O            1   0.203   0.000  wr_addr_s_0_dpot (wr_addr_s_0_dpot)
+     FDE:D                     0.102          wr_addr_s_0
     ----------------------------------------
-    Total                      3.516ns (0.975ns logic, 2.541ns route)
-                                       (27.7% logic, 72.3% route)
+    Total                      4.597ns (1.160ns logic, 3.437ns route)
+                                       (25.2% logic, 74.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_i'
-  Total number of paths / destination ports: 290 / 128
+  Total number of paths / destination ports: 280 / 157
 -------------------------------------------------------------------------
-Offset:              4.909ns (Levels of Logic = 4)
+Offset:              4.761ns (Levels of Logic = 4)
   Source:            ft_rd_done_i (PAD)
-  Destination:       Sub_State_FSM_FFd2 (FF)
+  Destination:       Top_State_FSM_FFd4 (FF)
   Destination Clock: CLK_i rising
 
-  Data Path: ft_rd_done_i to Sub_State_FSM_FFd2
+  Data Path: ft_rd_done_i to Top_State_FSM_FFd4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            26   1.222   1.571  ft_rd_done_i_IBUF (ft_rd_done_i_IBUF)
-     LUT6:I0->O            2   0.203   0.721  Sub_State_FSM_FFd2-In21 (Sub_State_FSM_FFd2-In2)
-     LUT4:I2->O            1   0.203   0.684  Sub_State_FSM_FFd2-In_SW1 (N34)
-     LUT6:I4->O            1   0.203   0.000  Sub_State_FSM_FFd2-In (Sub_State_FSM_FFd2-In)
-     FDC:D                     0.102          Sub_State_FSM_FFd2
+     IBUF:I->O            25   1.222   1.297  ft_rd_done_i_IBUF (ft_rd_done_i_IBUF)
+     LUT6:I4->O            2   0.203   0.845  Top_State_FSM_FFd3-In211 (Top_State_FSM_FFd3-In21)
+     LUT6:I3->O            1   0.205   0.684  Top_State_FSM_FFd4-In5_SW0 (N65)
+     LUT6:I4->O            1   0.203   0.000  Top_State_FSM_FFd4-In5 (Top_State_FSM_FFd4-In)
+     FDC:D                     0.102          Top_State_FSM_FFd4
     ----------------------------------------
-    Total                      4.909ns (1.933ns logic, 2.976ns route)
-                                       (39.4% logic, 60.6% route)
+    Total                      4.761ns (1.935ns logic, 2.826ns route)
+                                       (40.6% logic, 59.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_i'
-  Total number of paths / destination ports: 74 / 58
+  Total number of paths / destination ports: 97 / 73
 -------------------------------------------------------------------------
-Offset:              5.717ns (Levels of Logic = 2)
-  Source:            Sub_State_FSM_FFd1 (FF)
+Offset:              5.590ns (Levels of Logic = 2)
+  Source:            Sub_State_FSM_FFd3 (FF)
   Destination:       D_io<7> (PAD)
   Source Clock:      CLK_i rising
 
-  Data Path: Sub_State_FSM_FFd1 to D_io<7>
+  Data Path: Sub_State_FSM_FFd3 to D_io<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             52   0.447   1.561  Sub_State_FSM_FFd1 (Sub_State_FSM_FFd1)
-     LUT3:I2->O           13   0.205   0.932  PWR_3_o_RST_i_AND_8_o_inv1 (PWR_3_o_RST_i_AND_8_o_inv)
+     FDC:C->Q             34   0.447   1.568  Sub_State_FSM_FFd3 (Sub_State_FSM_FFd3)
+     LUT4:I0->O            8   0.203   0.802  PWR_5_o_RST_i_AND_16_o_inv1 (PWR_5_o_RST_i_AND_16_o_inv)
      IOBUF:T->IO               2.571          D_io_7_IOBUF (D_io<7>)
     ----------------------------------------
-    Total                      5.717ns (3.223ns logic, 2.494ns route)
-                                       (56.4% logic, 43.6% route)
+    Total                      5.590ns (3.221ns logic, 2.369ns route)
+                                       (57.6% logic, 42.4% route)
 
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Delay:               6.832ns (Levels of Logic = 3)
+Delay:               5.883ns (Levels of Logic = 3)
   Source:            RST_i (PAD)
   Destination:       D_io<7> (PAD)
 
@@ -462,12 +486,12 @@ Delay:               6.832ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            69   1.222   1.901  RST_i_IBUF (RST_i_IBUF)
-     LUT3:I0->O           13   0.205   0.932  PWR_3_o_RST_i_AND_8_o_inv1 (PWR_3_o_RST_i_AND_8_o_inv)
+     IBUF:I->O            15   1.222   1.086  RST_i_IBUF (RST_i_IBUF)
+     LUT4:I2->O            8   0.203   0.802  PWR_5_o_RST_i_AND_16_o_inv1 (PWR_5_o_RST_i_AND_16_o_inv)
      IOBUF:T->IO               2.571          D_io_7_IOBUF (D_io<7>)
     ----------------------------------------
-    Total                      6.832ns (3.998ns logic, 2.834ns route)
-                                       (58.5% logic, 41.5% route)
+    Total                      5.883ns (3.996ns logic, 1.887ns route)
+                                       (67.9% logic, 32.1% route)
 
 =========================================================================
 
@@ -479,21 +503,21 @@ Clock to Setup on destination clock CLK_i
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK_i          |    3.516|         |         |         |
+CLK_i          |    4.597|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 4.82 secs
+Total CPU time to Xst completion: 5.04 secs
  
 --> 
 
 
-Total memory usage is 387764 kilobytes
+Total memory usage is 389324 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    3 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
 

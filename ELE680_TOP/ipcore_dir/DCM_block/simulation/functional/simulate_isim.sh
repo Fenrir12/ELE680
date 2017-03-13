@@ -49,13 +49,12 @@
 
 # lin64
 # create the project
-vlogcomp -work work ${XILINX}/verilog/src/glbl.v
-vlogcomp -work work ../../../DCM_block.v
-vlogcomp -work work ../../example_design/DCM_block_exdes.v
-vlogcomp -work work ../DCM_block_tb.v
+vhpcomp -work work ../../../DCM_block.vhd
+vhpcomp -work work ../../example_design/DCM_block_exdes.vhd
+vhpcomp -work work ../DCM_block_tb.vhd
 
 # compile the project
-fuse work.DCM_block_tb work.glbl -L unisims_ver -o DCM_block_isim.exe
+fuse work.DCM_block_tb  -L unisim -o DCM_block_isim.exe
 
 # run the simulation script
 ./DCM_block_isim.exe -gui -tclbatch simcmds.tcl

@@ -47,7 +47,6 @@
 # PART OF THIS FILE AT ALL TIMES.
 # 
 
-add wave -noupdate -format Literal -radix ascii /DCM_block_tb/test_phase
 add wave -noupdate -divider {Input clocks}
 add wave -noupdate -format Logic /DCM_block_tb/CLK_IN1
 add wave -noupdate -divider {Output clocks}

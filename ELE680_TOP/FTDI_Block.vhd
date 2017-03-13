@@ -65,11 +65,12 @@ BEGIN
 	   counter_s <= "00000000";
 		write_state <= write_init;
 		ft_wr_done_o <= '0';	
+		D_io_s <= x"00";
 	ELSIF (rising_edge(clk_i)) THEN
 		CASE read_state IS
 			WHEN read_init =>
-				RD_o <= '1';
-				IF (RXF_i = '0') THEN
+				RD_o <= '1';			
+				IF (RXF_i = '0' AND write_state = write_init) THEN
 					read_state <= wait_for_dat;
 				end IF;
 			WHEN wait_for_dat =>
@@ -99,7 +100,8 @@ BEGIN
 		CASE write_state IS
 			WHEN write_init =>
 				ft_wr_done_o <= '0';	
-				IF (TXE_i = '0' AND ft_wr_en_i = '1') THEN
+				WR_o <= '1';
+				IF (TXE_i = '0' AND ft_wr_en_i = '1' AND read_state = read_init) THEN
 					counter_s <= counter_s + clk_period;
 					write_state <= wait_for_write;
 					D_io_s <= D_io;
@@ -127,8 +129,8 @@ BEGIN
 		end CASE;
 	end IF;
 end PROCESS;
-D_ft_io <= D_io_s when (write_state = write_time AND RST_i = '1') else (others=>'Z');
-D_ft_io <= D_io_s when (write_state = wait_for_write AND RST_i = '1') else (others=>'Z');
-D_io <= D_io_s when (read_state = read_dat AND RST_i = '1') else (others=>'Z');
+	D_ft_io <= D_io_s when (write_state = write_time AND RST_i = '1') else (others=>'Z');
+	D_ft_io <= D_io_s when (write_state = wait_for_write AND RST_i = '1') else (others=>'Z');
+	D_io <= D_io_s when (read_state = read_done AND RST_i = '1') else (others=>'Z');
 end Behavioral;
 

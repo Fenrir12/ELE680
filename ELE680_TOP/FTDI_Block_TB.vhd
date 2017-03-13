@@ -128,7 +128,7 @@ BEGIN
 		
 				
 		--wait for clk_period*2;
-		
+		D_io <= "ZZZZZZZZ";
 		for i in 0 to 4 loop
 			RXF_i  <= '0';
 			wait until RD_o = '0';
@@ -149,7 +149,31 @@ BEGIN
 		wait until WR_o = '0';
 		--wait until state = "0000";
 		ft_wr_en_i <= '0';
-
+		TXE_i <= '1';
+		
+		
+		
+		D_io <= "ZZZZZZZZ";
+		for i in 0 to 22 loop
+			RXF_i  <= '0';
+			wait until RD_o = '0';
+			wait for 14 ns;
+			D_ft_io <= Chargement(i);
+			wait until RD_o = '1';
+			wait for 14 ns;
+			RXF_i  <= '1';
+			wait for 49 ns;
+		end loop;
+		
+		
+		D_ft_io <= "ZZZZZZZZ";
+		D_io <= x"81";
+		TXE_i <= '0';
+		wait for 30 ns;
+		ft_wr_en_i <= '1';
+		wait until WR_o = '0';
+		--wait until state = "0000";
+		ft_wr_en_i <= '0';
       wait;
    end process;
 

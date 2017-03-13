@@ -204,7 +204,7 @@ begin
 				IF (mem_wr_ack_i = '1') THEN
 					Sub_State <= inc_wr_addr;
 				ELSE
-					Sub_State <= MEM_WRITE;
+					Sub_State <= MEM_WRITE; -- repeat until sample has been written to memory
 				end IF;
 			WHEN inc_wr_addr=>
 				smp_rdy_o <= '0';
@@ -260,5 +260,6 @@ begin
 D_io <= D_io_s WHEN (Sub_State = wr_confirm AND RST_i = '1') ELSE ("ZZZZZZZZ");
 wr_addr_o <= wr_addr_s;
 GEN_RUN_o <= GEN_RUN_s;
+CLK_DAC_o <= CLK_i;
 end Behavioral;
 

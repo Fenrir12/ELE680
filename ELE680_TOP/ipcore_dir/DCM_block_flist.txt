@@ -4,7 +4,7 @@ DCM_block/doc/clk_wiz_v3_6_readme.txt
 DCM_block/doc/clk_wiz_v3_6_vinfo.html
 DCM_block/doc/pg065_clk_wiz.pdf
 DCM_block/example_design/DCM_block_exdes.ucf
-DCM_block/example_design/DCM_block_exdes.v
+DCM_block/example_design/DCM_block_exdes.vhd
 DCM_block/example_design/DCM_block_exdes.xdc
 DCM_block/implement/implement.bat
 DCM_block/implement/implement.sh
@@ -16,7 +16,7 @@ DCM_block/implement/planAhead_rdn.sh
 DCM_block/implement/planAhead_rdn.tcl
 DCM_block/implement/xst.prj
 DCM_block/implement/xst.scr
-DCM_block/simulation/DCM_block_tb.v
+DCM_block/simulation/DCM_block_tb.vhd
 DCM_block/simulation/functional/simcmds.tcl
 DCM_block/simulation/functional/simulate_isim.bat
 DCM_block/simulation/functional/simulate_isim.sh
@@ -25,11 +25,9 @@ DCM_block/simulation/functional/simulate_mti.do
 DCM_block/simulation/functional/simulate_mti.sh
 DCM_block/simulation/functional/simulate_ncsim.sh
 DCM_block/simulation/functional/simulate_vcs.sh
-DCM_block/simulation/functional/ucli_commands.key
-DCM_block/simulation/functional/vcs_session.tcl
 DCM_block/simulation/functional/wave.do
 DCM_block/simulation/functional/wave.sv
-DCM_block/simulation/timing/DCM_block_tb.v
+DCM_block/simulation/timing/DCM_block_tb.vhd
 DCM_block/simulation/timing/sdf_cmd_file
 DCM_block/simulation/timing/simcmds.tcl
 DCM_block/simulation/timing/simulate_isim.sh
@@ -45,10 +43,11 @@ DCM_block.asy
 DCM_block.gise
 DCM_block.sym
 DCM_block.ucf
-DCM_block.v
-DCM_block.veo
+DCM_block.vhd
+DCM_block.vho
 DCM_block.xco
 DCM_block.xdc
 DCM_block.xise
 DCM_block_flist.txt
 DCM_block_xmdf.tcl
+_xmsgs/pn_parser.xmsgs

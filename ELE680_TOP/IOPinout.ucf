@@ -1,0 +1,31 @@
+#Clock constraints
+NET "CLK_i"		LOC = "P134";#LOC = "E7"; #pin 134
+NET "CLK_i"		PERIOD = 10ns;   # 10ns = 100Mhz
+
+#RST constraint
+NET "RST_i"		LOC = "P40";#LOC = "N5"; #pin 40
+#FTDI Constraints
+#NET "D<7>"    LOC=""; #pin
+#NET "D<6>"    LOC=""; #pin
+#NET "D<5>"    LOC=""; #pin
+#NET "D<4>"    LOC=""; #pin
+#NET "D<3>"    LOC=""; #pin
+#NET "D<2>"    LOC=""; #pin
+#NET "D<1>"    LOC=""; #pin
+#NET "D<0>"    LOC=""; #pin
+#DAC Constraints
+NET "D_o<11>"    LOC = "P133";#LOC="D8"; #pin 133
+NET "D_o<10>"    LOC = "P132";#LOC="B7"; #pin 132
+NET "D_o<9>"     LOC = "P126";#LOC="A8"; #pin 126
+NET "D_o<8>"     LOC = "P120";#LOC="A10"; #pin 120
+NET "D_o<7>"     LOC = "P119";#LOC="B11"; #pin 119
+NET "D_o<6>"     LOC = "P118";#LOC="A11"; #pin 118
+NET "D_o<5>"     LOC = "P117";#LOC="D11"; #pin 117
+NET "D_o<4>"     LOC = "P116";#LOC="C11"; #pin 116
+NET "D_o<3>"     LOC = "P115";#LOC="B13"; #pin 115
+NET "D_o<2>"     LOC = "P114";#LOC="A13"; #pin 114
+NET "D_o<1>"     LOC = "P112";#LOC="C12"; #pin 112
+NET "D_o<0>"     LOC = "P111";#LOC="A12"; #pin 111
+#DAC clock
+NET "CLK_DAC_o" LOC = "P139";#LOC = "C5";#pin 139
+NET "CLK_DAC_o" PERIOD = 80 ns; 

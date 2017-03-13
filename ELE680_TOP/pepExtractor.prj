@@ -1,1 +1,2 @@
-work	"FTDI_Block.vhd"
+work	"BRAM_ctrlr.vhd"
+work	"ipcore_dir/BRAM.vhd"

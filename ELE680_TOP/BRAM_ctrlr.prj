@@ -1,0 +1,2 @@
+verilog work "ipcore_dir/BRAM.v"
+vhdl work "BRAM_ctrlr.vhd"

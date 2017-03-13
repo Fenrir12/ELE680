@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Ramp_test_TB_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="ramp_test_tb" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/ramp_test_tb/rst_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_i</obj_property>
+      <obj_property name="ObjectShortName">rst_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ramp_test_tb/uut/clk_dac_s" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_dac_s</obj_property>
+      <obj_property name="ObjectShortName">clk_dac_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ramp_test_tb/clk_dac_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_dac_o</obj_property>
+      <obj_property name="ObjectShortName">clk_dac_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ramp_test_tb/clk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i</obj_property>
+      <obj_property name="ObjectShortName">clk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ramp_test_tb/uut/counter_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter_s[11:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_s[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ramp_test_tb/d_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_o[11:0]</obj_property>
+      <obj_property name="ObjectShortName">d_o[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ramp_test_tb/clk_i_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i_period</obj_property>
+      <obj_property name="ObjectShortName">clk_i_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ramp_test_tb/clk_dac_o_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_dac_o_period</obj_property>
+      <obj_property name="ObjectShortName">clk_dac_o_period</obj_property>
+   </wvobject>
+</wave_config>

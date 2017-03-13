@@ -145,7 +145,7 @@ BEGIN
 		RST_i <= '0';
 		wait for 200 ns;
 		RST_i <= '1';			--END of reset
-		
+		GEN_RUN_i <= '0';
 				
 		--wait for clk_period*2;
 		

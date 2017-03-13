@@ -1,0 +1,3 @@
+vhdl work "Main_ctrlr.vhd"
+vhdl work "FTDI_Block.vhd"
+vhdl work "Main_TOP.vhd"
