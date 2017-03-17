@@ -1,31 +1,161 @@
 #Clock constraints
-NET "CLK_i"		LOC = "P134";#LOC = "E7"; #pin 134
-NET "CLK_i"		PERIOD = 10ns;   # 10ns = 100Mhz
+#LOC = "E7"; #pin 134
+NET "CLK_i" LOC = P134;
+# 10ns = 100Mhz
+NET "CLK_i" PERIOD = 10 ns;
 
 #RST constraint
-NET "RST_i"		LOC = "P40";#LOC = "N5"; #pin 40
+#LOC = "N5"; #pin 40
+NET "RST_i" LOC = P40;
 #FTDI Constraints
-#NET "D<7>"    LOC=""; #pin
-#NET "D<6>"    LOC=""; #pin
-#NET "D<5>"    LOC=""; #pin
-#NET "D<4>"    LOC=""; #pin
-#NET "D<3>"    LOC=""; #pin
-#NET "D<2>"    LOC=""; #pin
-#NET "D<1>"    LOC=""; #pin
-#NET "D<0>"    LOC=""; #pin
+NET "D_ft_io<7>"    LOC="P97"; #pin
+NET "D_ft_io<6>"    LOC="P98"; #pin
+NET "D_ft_io<5>"    LOC="P99"; #pin
+NET "D_ft_io<4>"    LOC="P100"; #pin
+NET "D_ft_io<3>"    LOC="P101"; #pin
+NET "D_ft_io<2>"    LOC="P102"; #pin
+NET "D_ft_io<1>"    LOC="P104"; #pin
+NET "D_ft_io<0>"    LOC="P105"; #pin
+NET "RD_o"		LOC="P81"; #pin
+NET "WR_o"		LOC="P80"; #pin
+#pin
+NET "RXF_i" LOC = P83;
+NET "TXE_i"		LOC="P82"; #pin
+
+#LED Output Constraints
+#pin
+NET "LED_o[11]" LOC = P15;
+#pin
+NET "LED_o[10]" LOC = P14;
+#pin
+NET "LED_o[9]" LOC = P12;
+#pin
+NET "LED_o[8]" LOC = P11;
+#pin
+NET "LED_o[7]" LOC = P10;
+#pin
+NET "LED_o[6]" LOC = P9;
+#pin
+NET "LED_o[5]" LOC = P8;
+#pin
+NET "LED_o[4]" LOC = P7;
+#pin
+NET "LED_o[3]" LOC = P6;
+#pin
+NET "LED_o[2]" LOC = P5;
+#pin
+NET "LED_o[1]" LOC = P2;
+#pin
+NET "LED_o[0]" LOC = P1;
+
+#Debug Port Constraints
+#pin
+NET "DEBUG_o[11]" LOC = P32;
+#pin
+NET "DEBUG_o[10]" LOC = P35;
+#pin
+NET "DEBUG_o[9]" LOC = P23;
+#pin
+NET "DEBUG_o[8]" LOC = P17;
+#pin
+NET "DEBUG_o[7]" LOC = P16;
+#pin
+NET "DEBUG_o[6]" LOC = P22;
+#pin
+NET "DEBUG_o[5]" LOC = P24;
+#pin
+NET "DEBUG_o[4]" LOC = P29;
+#pin
+NET "DEBUG_o[3]" LOC = P30;
+#pin
+NET "DEBUG_o[2]" LOC = P34;
+#pin
+NET "DEBUG_o[1]" LOC = P33;
+#pin
+NET "DEBUG_o[0]" LOC = P27;
+
 #DAC Constraints
-NET "D_o<11>"    LOC = "P133";#LOC="D8"; #pin 133
-NET "D_o<10>"    LOC = "P132";#LOC="B7"; #pin 132
-NET "D_o<9>"     LOC = "P126";#LOC="A8"; #pin 126
-NET "D_o<8>"     LOC = "P120";#LOC="A10"; #pin 120
-NET "D_o<7>"     LOC = "P119";#LOC="B11"; #pin 119
-NET "D_o<6>"     LOC = "P118";#LOC="A11"; #pin 118
-NET "D_o<5>"     LOC = "P117";#LOC="D11"; #pin 117
-NET "D_o<4>"     LOC = "P116";#LOC="C11"; #pin 116
-NET "D_o<3>"     LOC = "P115";#LOC="B13"; #pin 115
-NET "D_o<2>"     LOC = "P114";#LOC="A13"; #pin 114
-NET "D_o<1>"     LOC = "P112";#LOC="C12"; #pin 112
-NET "D_o<0>"     LOC = "P111";#LOC="A12"; #pin 111
+#LOC="D8"; #pin 133
+NET "D_o[11]" LOC = P133;
+#LOC="B7"; #pin 132
+NET "D_o[10]" LOC = P132;
+#LOC="A8"; #pin 126
+NET "D_o[9]" LOC = P126;
+#LOC="A10"; #pin 120
+NET "D_o[8]" LOC = P120;
+#LOC="B11"; #pin 119
+NET "D_o[7]" LOC = P119;
+#LOC="A11"; #pin 118
+NET "D_o[6]" LOC = P118;
+#LOC="D11"; #pin 117
+NET "D_o[5]" LOC = P117;
+#LOC="C11"; #pin 116
+NET "D_o[4]" LOC = P116;
+#LOC="B13"; #pin 115
+NET "D_o[3]" LOC = P115;
+#LOC="A13"; #pin 114
+NET "D_o[2]" LOC = P114;
+#LOC="C12"; #pin 112
+NET "D_o[1]" LOC = P112;
+#LOC="A12"; #pin 111
+NET "D_o[0]" LOC = P111;
 #DAC clock
-NET "CLK_DAC_o" LOC = "P139";#LOC = "C5";#pin 139
-NET "CLK_DAC_o" PERIOD = 80 ns; 
+#LOC = "C5";#pin 139
+NET "CLK_dac_o" LOC = P139;
+NET "CLK_dac_o" PERIOD = 80 ns;
+
+# PlanAhead Generated IO constraints 
+
+NET "DEBUG_o[11]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[10]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[9]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[8]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[7]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[6]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[5]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[4]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[3]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[2]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[1]" IOSTANDARD = LVCMOS33;
+NET "DEBUG_o[0]" IOSTANDARD = LVCMOS33;
+NET "D_o[11]" IOSTANDARD = LVCMOS33;
+NET "D_o[10]" IOSTANDARD = LVCMOS33;
+NET "D_o[9]" IOSTANDARD = LVCMOS33;
+NET "D_o[8]" IOSTANDARD = LVCMOS33;
+NET "D_o[7]" IOSTANDARD = LVCMOS33;
+NET "D_o[6]" IOSTANDARD = LVCMOS33;
+NET "D_o[5]" IOSTANDARD = LVCMOS33;
+NET "D_o[4]" IOSTANDARD = LVCMOS33;
+NET "D_o[3]" IOSTANDARD = LVCMOS33;
+NET "D_o[2]" IOSTANDARD = LVCMOS33;
+NET "D_o[1]" IOSTANDARD = LVCMOS33;
+NET "D_o[0]" IOSTANDARD = LVCMOS33;
+NET "LED_o[11]" IOSTANDARD = LVCMOS33;
+NET "LED_o[10]" IOSTANDARD = LVCMOS33;
+NET "LED_o[9]" IOSTANDARD = LVCMOS33;
+NET "LED_o[8]" IOSTANDARD = LVCMOS33;
+NET "LED_o[7]" IOSTANDARD = LVCMOS33;
+NET "LED_o[6]" IOSTANDARD = LVCMOS33;
+NET "LED_o[5]" IOSTANDARD = LVCMOS33;
+NET "LED_o[4]" IOSTANDARD = LVCMOS33;
+NET "LED_o[3]" IOSTANDARD = LVCMOS33;
+NET "LED_o[2]" IOSTANDARD = LVCMOS33;
+NET "LED_o[1]" IOSTANDARD = LVCMOS33;
+NET "LED_o[0]" IOSTANDARD = LVCMOS33;
+NET "CLK_DAC_o" IOSTANDARD = LVCMOS33;
+NET "CLK_i" IOSTANDARD = LVCMOS33;
+NET "RST_i" IOSTANDARD = LVCMOS33;
+NET "RXF_i" IOSTANDARD = LVCMOS33;
+NET "TXE_i" IOSTANDARD = LVCMOS33;
+NET "WR_o" IOSTANDARD = LVCMOS33;
+NET "RD_o" IOSTANDARD = LVCMOS33;
+NET "D_ft_io<7>"  IOSTANDARD = LVCMOS33;
+NET "D_ft_io<6>"  IOSTANDARD = LVCMOS33;
+NET "D_ft_io<5>"  IOSTANDARD = LVCMOS33;
+NET "D_ft_io<4>"  IOSTANDARD = LVCMOS33;
+NET "D_ft_io<3>"  IOSTANDARD = LVCMOS33;
+NET "D_ft_io<2>"  IOSTANDARD = LVCMOS33;
+NET "D_ft_io<1>"  IOSTANDARD = LVCMOS33;
+NET "D_ft_io<0>"  IOSTANDARD = LVCMOS33;
+NET "RD_o"		IOSTANDARD = LVCMOS33;
+NET "WR_o"		IOSTANDARD = LVCMOS33;

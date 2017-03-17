@@ -1,23 +1,59 @@
-Running: /home/f3nr1r/Manual_Softwares/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr_TB_isim_beh.exe" -prj "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr_TB_beh.prj" "work.BRAM_ctrlr_TB" 
+Running: /home/f3nr1r/Manual_Softwares/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/MAIN_TOP_TB_isim_beh.exe" -prj "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/MAIN_TOP_TB_beh.prj" "work.MAIN_TOP_TB" 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
+Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/DCM_block.vhd" into library work
+Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_ctrlr.vhd" into library work
+Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/BRAM.vhd" into library work
+Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/FTDI_Block.vhd" into library work
+Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/DAC_Block.vhd" into library work
 Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr.vhd" into library work
-Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr_TB.vhd" into library work
+Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" into library work
+WARNING:HDLCompiler:946 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 148: Actual for formal port c0 is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 149: Actual for formal port c1 is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 153: Actual for formal port r is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 163: Actual for formal port reset is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 206: Actual for formal port rstb is neither a static name nor a globally static expression
+Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/MAIN_TOP_TB.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 96416 KB
-Fuse CPU Usage: 1980 ms
+Fuse Memory Usage: 187672 KB
+Fuse CPU Usage: 2530 ms
 Compiling package standard
 Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package vcomponents
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
 Compiling package std_logic_arith
 Compiling package std_logic_unsigned
+Compiling architecture oddr2_v of entity ODDR2 [\ODDR2("NONE",'0',"SYNC")(1,4,1,...]
+Compiling package std_logic_signed
+Compiling architecture ibufg_v of entity IBUFG [\IBUFG("DONT_CARE","0",true,"DEF...]
+Compiling architecture pll_adv_v of entity PLL_ADV [\PLL_ADV("HIGH","CLKFBOUT","NONE...]
+Compiling architecture pll_base_v of entity PLL_BASE [\PLL_BASE("HIGH",10,0.0,10.0,10,...]
+Compiling architecture bufg_v of entity BUFG [bufg_default]
+Compiling architecture xilinx of entity DCM_block [dcm_block_default]
+Compiling architecture behavioral of entity FTDI_Block [\FTDI_Block(10)\]
+Compiling architecture behavioral of entity Main_ctrlr [main_ctrlr_default]
+Compiling package std_logic_textio
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_3_output_stage [\BLK_MEM_GEN_V7_3_output_stage("...]
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_3_output_stage [\BLK_MEM_GEN_V7_3_output_stage("...]
+Compiling architecture softecc_output_reg_stage_behavioral of entity BLK_MEM_GEN_V7_3_softecc_output_reg_stage [\BLK_MEM_GEN_V7_3_softecc_output...]
+Compiling architecture mem_module_behavioral of entity BLK_MEM_GEN_V7_3_mem_module [\BLK_MEM_GEN_V7_3_mem_module("bl...]
+Compiling architecture behavioral of entity BLK_MEM_GEN_V7_3 [\BLK_MEM_GEN_V7_3("blk_mem_gen_v...]
+Compiling architecture bram_a of entity BRAM [bram_default]
 Compiling architecture behavioral of entity BRAM_ctrlr [bram_ctrlr_default]
-Compiling architecture behavior of entity bram_ctrlr_tb
+Compiling architecture behavioral of entity DAC_Block [dac_block_default]
+Compiling architecture behavioral of entity Main_TOP [\Main_TOP(10)\]
+Compiling architecture behavior of entity main_top_tb
 Time Resolution for simulation is 1ps.
-Compiled 7 VHDL Units
-Built simulation executable /home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr_TB_isim_beh.exe
-Fuse Memory Usage: 668808 KB
-Fuse CPU Usage: 2080 ms
-GCC CPU Usage: 200 ms
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 47 VHDL Units
+Built simulation executable /home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/MAIN_TOP_TB_isim_beh.exe
+Fuse Memory Usage: 763092 KB
+Fuse CPU Usage: 3130 ms
+GCC CPU Usage: 180 ms

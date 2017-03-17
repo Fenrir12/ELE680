@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_TOP_TB_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="bram_top_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/bram_top_tb/d_mem_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_mem_i[13:0]</obj_property>
+      <obj_property name="ObjectShortName">d_mem_i[13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/wr_addr_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_addr_i[14:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_addr_i[14:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/inc_rd_addr_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inc_rd_addr_i[13:0]</obj_property>
+      <obj_property name="ObjectShortName">inc_rd_addr_i[13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/max_rd_addr_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">max_rd_addr_i[14:0]</obj_property>
+      <obj_property name="ObjectShortName">max_rd_addr_i[14:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/smp_rdy_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">smp_rdy_i</obj_property>
+      <obj_property name="ObjectShortName">smp_rdy_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/gen_run_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">gen_run_i</obj_property>
+      <obj_property name="ObjectShortName">gen_run_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/clk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i</obj_property>
+      <obj_property name="ObjectShortName">clk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/rst_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_i</obj_property>
+      <obj_property name="ObjectShortName">rst_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/d_dac_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">d_dac_o[13:0]</obj_property>
+      <obj_property name="ObjectShortName">d_dac_o[13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/mem_wr_ack_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_wr_ack_o</obj_property>
+      <obj_property name="ObjectShortName">mem_wr_ack_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/clk_i_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i_period</obj_property>
+      <obj_property name="ObjectShortName">clk_i_period</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/adresse_ecriture" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">adresse_ecriture[14:0]</obj_property>
+      <obj_property name="ObjectShortName">adresse_ecriture[14:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/uut/U1/wea" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/uut/U1/dina" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dina[13:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/uut/U1/addra" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addra[14:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[14:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/uut/U2/mem_read_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_read_state</obj_property>
+      <obj_property name="ObjectShortName">mem_read_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/uut/U1/addrb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addrb[14:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[14:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/uut/U2/future_read_addr_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">future_read_addr_s[14:0]</obj_property>
+      <obj_property name="ObjectShortName">future_read_addr_s[14:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bram_top_tb/uut/U1/doutb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">doutb[13:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

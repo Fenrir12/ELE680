@@ -1,0 +1,7 @@
+vhdl isim_temp "ipcore_dir/DCM_block.vhd"
+vhdl isim_temp "ipcore_dir/BRAM.vhd"
+vhdl isim_temp "Main_ctrlr.vhd"
+vhdl isim_temp "FTDI_Block.vhd"
+vhdl isim_temp "DAC_Block.vhd"
+vhdl isim_temp "BRAM_ctrlr.vhd"
+vhdl isim_temp "Main_TOP.vhd"

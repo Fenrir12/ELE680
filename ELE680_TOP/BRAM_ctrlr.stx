@@ -5,14 +5,14 @@ Parameter TMPDIR set to /home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TO
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to /home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: BRAM_ctrlr.prj
@@ -42,20 +42,20 @@ TABLE OF CONTENTS
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/ipcore_dir/BRAM.v" into library work
-Parsing module <BRAM>.
 Parsing VHDL file "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr.vhd" into library work
 Parsing entity <BRAM_ctrlr>.
 Parsing architecture <Behavioral> of entity <bram_ctrlr>.
-ERROR:HDLCompiler:1728 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr.vhd" Line 70: Type error near wr_en_s ; current type std_logic; expected type std_logic_vector
-ERROR:HDLCompiler:854 - "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr.vhd" Line 46: Unit <behavioral> ignored due to previous errors.
-VHDL file /home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr.vhd ignored due to errors
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 2.99 secs
+ 
 --> 
 
 
-Total memory usage is 300512 kilobytes
+Total memory usage is 301440 kilobytes
 
-Number of errors   :    2 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

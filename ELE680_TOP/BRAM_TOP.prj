@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/BRAM.vhd"
+vhdl work "BRAM_ctrlr.vhd"
+vhdl work "BRAM_TOP.vhd"

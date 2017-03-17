@@ -5,10 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="ConstraintSystem" num="0" >The Period constraint &lt;NET &quot;CLK_i&quot;		PERIOD = 10ns;&gt; [IOPinout.ucf(3)], is specified using the Net Period method which is not recommended. Please use the Timespec PERIOD method.
+<msg type="info" file="ConstraintSystem" num="0" >The Period constraint &lt;NET &quot;CLK_i&quot; PERIOD = 10 ns;&gt; [IOPinout.ucf(5)], is specified using the Net Period method which is not recommended. Please use the Timespec PERIOD method.
 </msg>
 
-<msg type="info" file="ConstraintSystem" num="0" >The Period constraint &lt;NET &quot;CLK_DAC_o&quot; PERIOD = 80 ns;&gt; [IOPinout.ucf(31)], is specified using the Net Period method which is not recommended. Please use the Timespec PERIOD method.
+<msg type="info" file="ConstraintSystem" num="0" >The Period constraint &lt;NET &quot;CLK_dac_o&quot; PERIOD = 80 ns;&gt; [IOPinout.ucf(105)], is specified using the Net Period method which is not recommended. Please use the Timespec PERIOD method.
 </msg>
 
 </messages>

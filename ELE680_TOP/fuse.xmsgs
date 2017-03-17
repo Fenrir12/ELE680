@@ -5,5 +5,20 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 148: Actual for formal port <arg fmt="%s" index="1">c0</arg> is neither a static name nor a globally static expression
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 149: Actual for formal port <arg fmt="%s" index="1">c1</arg> is neither a static name nor a globally static expression
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 153: Actual for formal port <arg fmt="%s" index="1">r</arg> is neither a static name nor a globally static expression
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 163: Actual for formal port <arg fmt="%s" index="1">reset</arg> is neither a static name nor a globally static expression
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/Main_TOP.vhd" Line 206: Actual for formal port <arg fmt="%s" index="1">rstb</arg> is neither a static name nor a globally static expression
+</msg>
+
 </messages>
 

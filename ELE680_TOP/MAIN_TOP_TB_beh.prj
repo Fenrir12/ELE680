@@ -1,0 +1,8 @@
+vhdl work "ipcore_dir/DCM_block.vhd"
+vhdl work "Main_ctrlr.vhd"
+vhdl work "ipcore_dir/BRAM.vhd"
+vhdl work "FTDI_Block.vhd"
+vhdl work "DAC_Block.vhd"
+vhdl work "BRAM_ctrlr.vhd"
+vhdl work "Main_TOP.vhd"
+vhdl work "MAIN_TOP_TB.vhd"

@@ -1,2 +1,7 @@
 work	"BRAM_ctrlr.vhd"
+work	"DAC_Block.vhd"
+work	"FTDI_Block.vhd"
+work	"Main_TOP.vhd"
+work	"Main_ctrlr.vhd"
 work	"ipcore_dir/BRAM.vhd"
+work	"ipcore_dir/DCM_block.vhd"

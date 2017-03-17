@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr_TB_isim_beh.exe" -prj "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/BRAM_ctrlr_TB_beh.prj" "work.BRAM_ctrlr_TB" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/MAIN_TOP_TB_isim_beh.exe" -prj "/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/MAIN_TOP_TB_beh.prj" "work.MAIN_TOP_TB" 

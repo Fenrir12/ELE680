@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-03-13T13:33:10</DateModified>
+  <DateModified>2017-03-14T09:06:09</DateModified>
   <ModuleName>Ramp_test</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/iseconfig/Ramp_test.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/f3nr1r/Documents/Workspace/Xilinx/ELE680/ELE680_TOP/</ImplementationReportsDirectory>
   <DateInitialized>2017-03-13T13:33:09</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
